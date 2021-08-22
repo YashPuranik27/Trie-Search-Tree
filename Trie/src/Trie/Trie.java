@@ -18,7 +18,6 @@ public class Trie {
  * in sequence FROM FIRST TO LAST */
  public static TrieNode buildTrie(String[] allWords)
  {
-     /** COMPLETE THIS METHOD **/
      TrieNode root = new TrieNode(null, null, null);
      if(allWords.length==0) return root;
     
@@ -88,7 +87,6 @@ public class Trie {
 
  public static ArrayList<TrieNode> completionList(TrieNode root,String[] allWords, String prefix)
  {
-     /** COMPLETE THIS METHOD **/
      ArrayList<TrieNode> completionList = new ArrayList<>();
      TrieNode ptr = root.firstChild, prev = null;
      String totPrefix = "";
@@ -115,7 +113,7 @@ public class Trie {
          ptr = ptr.sibling;
      }
      if(ptr == null)
-     { //We somehow exited the tree. Either nothing was in common or the prefix was the actual word
+     {
          if(allWords[prev.substr.wordIndex].indexOf(prefix) == 0)
          {
              completionList.add(prev);
@@ -127,8 +125,6 @@ public class Trie {
      //At this point, we want every leaf node of this cihld and the leaf nodes of all the siblings of ptr
      //The parent of ptr is the lowest level that Prefix has in common in the tree
      addWords(completionList, ptr);
-     // FOLLOWING LINE IS A PLACEHOLDER TO ENSURE COMPILATION
-     // MODIFY IT AS NEEDED FOR YOUR IMPLEMENTATION
      return completionList;
  }
  private static void addWords(ArrayList<TrieNode> completionList, TrieNode start)
